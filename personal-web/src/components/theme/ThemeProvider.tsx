@@ -3,15 +3,14 @@ import {
     ThemeProvider as Provider,
     createTheme,
     responsiveFontSizes,
-} from '@material-ui/core/styles';
+} from '@mui/material/styles';
 import { BLACK, GREY, PURPLE } from '../../utils/constants';
 
-const headingFont = 'Arial';
-const bodyFont = 'Arial';
+const headingFont = 'Roboto';
+const bodyFont = 'Roboto';
 
 let theme = createTheme({
   palette: {
-    type: 'dark',
     primary: {
       main: PURPLE,
     },

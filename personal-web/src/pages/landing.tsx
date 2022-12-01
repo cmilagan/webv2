@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Layout from "../components/layout";
 import Section from "../components/section";
-import { Stack } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 
 const Landing = () => {
   return (
@@ -14,12 +14,12 @@ const Landing = () => {
           direction="column"
           spacing={1}
         >
-          <h1>
+          <Typography variant="h1">
             Christian Ilagan
-          </h1>
-          <h2>
-            Aspiring Software Engineer
-          </h2>
+          </Typography>
+          <Typography variant="h2">
+            Aspiring swe
+          </Typography>
         </Stack>
       </Section>
       <Section color="#fff">
