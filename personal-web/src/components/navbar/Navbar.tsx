@@ -12,11 +12,10 @@ import {
   AiFillLinkedin,
   AiFillMail,
 } from "react-icons/ai";
-
-const theme = useTheme();
+import { BLACK, GREY, PURPLE} from '../../utils/constants'
 
 const Wrapper = styled.div`
-  background: ${theme.palette.background.paper};
+  background: ${BLACK};
   width: 70px;
   height: 100vh;
   position: fixed;
@@ -32,15 +31,15 @@ const StyledLink = styled(Link)`
 `
 
 const StyledNavLink = styled(NavLink)`
-  color: ${theme.palette.background.paper};
+  color: ${GREY};
   text-decoration: none;
   position: relative;
   &.active {
-    color: ${theme.palette.primary.main};
+    color: ${PURPLE};
   }
 
   &:hover {
-    color: ${theme.palette.primary.main};
+    color: ${PURPLE};
 
     svg {
       opacity: 0;
@@ -90,13 +89,13 @@ const LogoIcon = styled.img`
 
 const IconButton = styled(FontAwesomeIcon)`
   font-size: 22px;
-  color: ${theme.palette.background.default};
+  color: ${GREY};
 `
 
 
 
 const Navbar = () => {
-
+  const theme = useTheme();
   return (
     <Wrapper>
       <Stack

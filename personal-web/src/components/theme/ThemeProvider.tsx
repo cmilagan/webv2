@@ -6,8 +6,8 @@ import {
 } from '@mui/material/styles';
 import { BLACK, GREY, PURPLE } from '../../utils/constants';
 
-const headingFont = 'Roboto';
-const bodyFont = 'Roboto';
+const headingFont = 'sans-serif';
+const bodyFont = 'sans-serif';
 
 let theme = createTheme({
   palette: {
