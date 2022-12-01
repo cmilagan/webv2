@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Logo from '../../assets/images/logo.png';
-import PropTypes from "prop-types";
 import { GREY } from "../../utils/constants";
+
 
 const Wrapper = styled.div<WrapperProps>`
   height: 60vh;

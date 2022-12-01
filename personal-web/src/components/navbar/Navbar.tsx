@@ -12,10 +12,11 @@ import {
   AiFillLinkedin,
   AiFillMail,
 } from "react-icons/ai";
-import { BLACK, GREY, PURPLE} from '../../utils/constants'
+
+const theme = useTheme();
 
 const Wrapper = styled.div`
-  background: ${BLACK};
+  background: ${theme.palette.background.paper};
   width: 70px;
   height: 100vh;
   position: fixed;
@@ -31,15 +32,15 @@ const StyledLink = styled(Link)`
 `
 
 const StyledNavLink = styled(NavLink)`
-  color: ${GREY};
+  color: ${theme.palette.background.paper};
   text-decoration: none;
   position: relative;
   &.active {
-    color: ${PURPLE};
+    color: ${theme.palette.primary.main};
   }
 
   &:hover {
-    color: ${PURPLE};
+    color: ${theme.palette.primary.main};
 
     svg {
       opacity: 0;
@@ -89,13 +90,13 @@ const LogoIcon = styled.img`
 
 const IconButton = styled(FontAwesomeIcon)`
   font-size: 22px;
-  color: ${GREY};
+  color: ${theme.palette.background.default};
 `
 
 
 
 const Navbar = () => {
-  const theme = useTheme();
+
   return (
     <Wrapper>
       <Stack
@@ -136,21 +137,21 @@ const Navbar = () => {
             rel="norefferer"
             href="https://www.linkedin.com/in/cmilagan/"
           >
-            <AiFillLinkedin color={GREY} fontSize="18px"/>
+            <AiFillLinkedin color={theme.palette.background.default} fontSize="18px"/>
           </a>
           <a
             target="_blank"
             rel="norefferer"
             href="https://github.com/cmilagan"
           >
-            <AiOutlineGithub color={GREY} fontSize="18px"/>
+            <AiOutlineGithub color={theme.palette.background.default} fontSize="18px"/>
           </a>
           <a
             target="_blank"
             rel="norefferer"
             href="mailto:cmilagan7@gmail.com"
           >
-            <AiFillMail color={GREY} fontSize="18px"/>
+            <AiFillMail color={theme.palette.background.default} fontSize="18px"/>
           </a>
         </Stack>
       </Stack>
