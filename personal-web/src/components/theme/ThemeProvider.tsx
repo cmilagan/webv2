@@ -4,11 +4,25 @@ import {
     createTheme,
     responsiveFontSizes,
 } from '@material-ui/core/styles';
+import { BLACK, GREY, PURPLE } from '../../utils/constants';
 
 const headingFont = 'Arial';
 const bodyFont = 'Arial';
 
 let theme = createTheme({
+  palette: {
+    type: 'dark',
+    primary: {
+      main: PURPLE,
+    },
+    secondary: {
+      main: '#f50057',
+    },
+    background: {
+      default: GREY,
+      paper: BLACK,
+    },
+  },
   typography: {
     fontFamily: [
       '-apple-system',

@@ -6,17 +6,19 @@ import Lsub from '../../assets/images/logosubtitle.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUser, faLaptop } from '@fortawesome/free-solid-svg-icons';
 import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
 import {
   AiOutlineGithub,
   AiFillLinkedin,
   AiFillMail,
 } from "react-icons/ai";
+import { BLACK, GREY, PURPLE} from '../../utils/constants'
 
 const Wrapper = styled.div`
-  background: #181818;
+  background: ${BLACK};
   width: 70px;
-  height: 100%;
-  position: absolute;
+  height: 100vh;
+  position: fixed;
   top: 0;
   z-index: 3;
   min-height: 500px
@@ -29,15 +31,15 @@ const StyledLink = styled(Link)`
 `
 
 const StyledNavLink = styled(NavLink)`
-  color: #4d4d4e;
+  color: ${GREY};
   text-decoration: none;
   position: relative;
   &.active {
-    color: #b026ff;
+    color: ${PURPLE};
   }
 
   &:hover {
-    color: #b026ff;
+    color: ${PURPLE};
 
     svg {
       opacity: 0;
@@ -87,13 +89,13 @@ const LogoIcon = styled.img`
 
 const IconButton = styled(FontAwesomeIcon)`
   font-size: 22px;
-  color: "#4d4d4e";
+  color: ${GREY};
 `
 
 
 
 const Navbar = () => {
-
+  const theme = useTheme();
   return (
     <Wrapper>
       <Stack
@@ -134,21 +136,21 @@ const Navbar = () => {
             rel="norefferer"
             href="https://www.linkedin.com/in/cmilagan/"
           >
-            <AiFillLinkedin color="4d4d4e" fontSize="18px"/>
+            <AiFillLinkedin color={GREY} fontSize="18px"/>
           </a>
           <a
             target="_blank"
             rel="norefferer"
             href="https://github.com/cmilagan"
           >
-            <AiOutlineGithub color="4d4d4e" fontSize="18px"/>
+            <AiOutlineGithub color={GREY} fontSize="18px"/>
           </a>
           <a
             target="_blank"
             rel="norefferer"
             href="mailto:cmilagan7@gmail.com"
           >
-            <AiFillMail color="4d4d4e" fontSize="18px"/>
+            <AiFillMail color={GREY} fontSize="18px"/>
           </a>
         </Stack>
       </Stack>
