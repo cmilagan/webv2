@@ -29,7 +29,53 @@ const StyledLink = styled(Link)`
 `
 
 const StyledNavLink = styled(NavLink)`
+  color: #4d4d4e;
   text-decoration: none;
+  position: relative;
+  &.active {
+    color: #b026ff;
+  }
+
+  &:hover {
+    color: #b026ff;
+
+    svg {
+      opacity: 0;
+    }
+
+    &:after {
+      opacity: 1;
+    }
+  }
+
+  &:after {
+    content: '';
+    font-size: 9px;
+    letter-spacing: 2px;
+    position: absolute;
+    display: block;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.3 ease-out;
+  }
+
+  &:nth-child(1) {
+    &::after {
+      content: 'HOME';
+    }
+  }
+
+  &:nth-child(2) {
+    &::after {
+      content: 'ABOUT';
+    }
+  }
+
+  &:nth-child(3) {
+    &::after {
+      content: 'PROJECTS';
+    }
+  }
 `
 
 const LogoIcon = styled.img`
@@ -51,7 +97,7 @@ const Navbar = () => {
   return (
     <Wrapper>
       <Stack
-        sx={{ height: '100%' }}
+        sx={{ height: '100%', textAlign: 'center' }}
         direction="column"
         justifyContent="space-between"
         alignItems="center"
@@ -62,23 +108,21 @@ const Navbar = () => {
           <LogoIcon src={Lsub} alt="cmilagan." />
         </StyledLink>
 
-        <nav>
-          <Stack
-            direction="column"
-            spacing={5}
-            alignItems="center"
-          >
-            <StyledNavLink to="/">
-              <IconButton icon={faHome} color="#4d4d4e"/>
-            </StyledNavLink>
-            <StyledNavLink to="/about">
-              <IconButton icon={faUser} color="#4d4d4e"/>
-            </StyledNavLink>
-            <StyledNavLink to="/projects">
-              <IconButton icon={faLaptop} color="#4d4d4e"/>
-            </StyledNavLink>
-          </Stack>
-        </nav>
+        <Stack
+          sx={{ width: "70px" }}
+          direction="column"
+          spacing={8}
+        >
+          <StyledNavLink to="/">
+            <IconButton icon={faHome}/>
+          </StyledNavLink>
+          <StyledNavLink to="/about">
+            <IconButton icon={faUser}/>
+          </StyledNavLink>
+          <StyledNavLink to="/projects">
+            <IconButton icon={faLaptop}/>
+          </StyledNavLink>
+        </Stack>
         <Stack
           sx={{marginBottom: '12px'}}
           direction="column"
