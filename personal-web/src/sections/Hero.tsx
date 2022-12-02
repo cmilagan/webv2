@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import Section from "../components/section";
 import { Stack, Typography, Button, useTheme } from "@mui/material";
-import { LIGHTGREY, PURPLE, WHITE, BLACK } from "../utils/constants";
+import { LIGHTGREY, PURPLE, WHITE, BLACK, DARKGREY } from "../utils/constants";
 import styled from "styled-components";
 import Typewriter from 'typewriter-effect';
 import Particles from "react-tsparticles";
@@ -33,7 +33,7 @@ const Hero = () => {
   return (
     <>
       <ParticleBackground/>
-      <Section color={BLACK}>
+      <Section size="sm" color={BLACK}>
 
         <Stack
           sx={{
@@ -108,10 +108,6 @@ const Hero = () => {
           </Stack>
         </Stack>
       </Section>
-      <Section color="#fff">
-        hi
-      </Section>
-
     </>
   )
 }
