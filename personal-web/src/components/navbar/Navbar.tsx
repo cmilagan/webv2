@@ -34,18 +34,21 @@ const StyledNavLink = styled(NavLink)`
   color: ${GREY};
   text-decoration: none;
   position: relative;
+  transition: all 0.3s ease-in;
   &.active {
     color: ${PURPLE};
   }
 
   &:hover {
     color: ${PURPLE};
-
+    transition: all 0.3s ease;
     svg {
+      transition: all 0.3s ease-out;
       opacity: 0;
     }
 
     &:after {
+      transition: all 0.3s ease;
       opacity: 1;
     }
   }

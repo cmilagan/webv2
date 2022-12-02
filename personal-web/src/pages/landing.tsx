@@ -3,7 +3,27 @@ import styled from "styled-components";
 import Layout from "../components/layout";
 import Section from "../components/section";
 import { Stack, Typography, Button, useTheme } from "@mui/material";
+import { LIGHTGREY, PURPLE, WHITE } from "../utils/constants";
 
+
+const StyledButton = styled.button`
+  color: ${WHITE};
+  border: 1px solid ${PURPLE};
+  padding: 10px 16px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  background-color: unset;
+  transition: all 0.3s ease;
+  & * {
+    text-decoration: none;
+  }
+  &:hover {
+    background-color: rgba(213, 184, 255, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+`
 
 const Landing = () => {
   const theme = useTheme();
@@ -32,7 +52,7 @@ const Landing = () => {
             variant="body2"
             sx={{
               [theme.breakpoints.between('xs', 'sm')]: {
-                width: "80vw",
+                width: "70vw",
               },
               [theme.breakpoints.between('sm', 'md')]: {
                 width: "45vw",
@@ -52,8 +72,8 @@ const Landing = () => {
             direction="row"
             spacing={3}
           >
-            <Button variant="outlined">Get in Touch</Button>
-            <Button variant="outlined">View Resume</Button>
+            <StyledButton>Get in Touch</StyledButton>
+            <StyledButton>View Resume</StyledButton>
           </Stack>
         </Stack>
       </Section>
