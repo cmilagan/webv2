@@ -21,6 +21,7 @@ const StyledImage = styled.img`
   width: 100%;
   border-radius: 15px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  object-fit: contain;
 `
 
 
@@ -38,13 +39,13 @@ const About = () => {
           </StyledTitle>
           <Grid
             container
-            spacing={1}  
+            spacing={2}  
           >
             <Grid item md={6} xs={12}>
               <Typography variant="body1">
                 Hello! I'm Christian, a recent graduate of Computer Science at UNSW. I am
                 interested in areas of full stack development, including that of web and mobile
-                applications. Currently I'm working as an intern working within the .NET framework
+                applications. Currently I'm working as full stack intern working with the .NET framework
                 at Trimble.
               </Typography>
               <Typography variant="body1">
