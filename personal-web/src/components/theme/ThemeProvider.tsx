@@ -4,12 +4,21 @@ import {
     createTheme,
     responsiveFontSizes,
 } from '@mui/material/styles';
-import { BLACK, GREY, PURPLE } from '../../utils/constants';
+import { BLACK, GREY, LIGHTGREY, PURPLE } from '../../utils/constants';
 
-const headingFont = 'sans-serif';
-const bodyFont = 'sans-serif';
+const headingFont = 'Segoe UI';
+const bodyFont = 'Segoe UI';
 
 let theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
   palette: {
     primary: {
       main: PURPLE,
@@ -25,6 +34,7 @@ let theme = createTheme({
   typography: {
     fontFamily: [
       '-apple-system',
+      'monospace',
       'sans-serif',
       '"Segoe UI"',
       'Roboto',
@@ -35,6 +45,9 @@ let theme = createTheme({
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
     ].join(','),
+    allVariants: {
+      color: LIGHTGREY,
+    },
     h1: {
       fontFamily: headingFont,
       fontSize: '4.5rem',
