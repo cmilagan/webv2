@@ -1,9 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import Section from "../components/section";
 import { Stack, Typography, Button, useTheme } from "@mui/material";
-import { LIGHTGREY, PURPLE, WHITE } from "../utils/constants";
+import { LIGHTGREY, PURPLE, WHITE, BLACK } from "../utils/constants";
 import styled from "styled-components";
 import Typewriter from 'typewriter-effect';
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
+import ParticleBackground from "../components/particles/ParticleBackground";
 
 const StyledButton = styled.button`
   color: ${WHITE};
@@ -26,15 +29,17 @@ const StyledButton = styled.button`
 
 const Hero = () => {
   const theme = useTheme()
-
-
+  
   return (
     <>
-      <Section color="">
+      <ParticleBackground/>
+      <Section color={BLACK}>
+
         <Stack
           sx={{
             height: "100%",
-            marginLeft: "2rem", 
+            marginLeft: "2rem",
+            zIndex: 1,
           }}
           justifyContent="center"
           direction="column"
@@ -43,10 +48,10 @@ const Hero = () => {
           <Typography variant="h5">
             Hello friends! I'm
           </Typography>
-          <Typography variant="h2">
+          <Typography variant="h2" color={WHITE}>
             Christian Ilagan
           </Typography>
-          <Typography variant="h3">
+          <Typography variant="h3" color={WHITE} gutterBottom>
             I enjoy
           </Typography>
           <Typography variant="h3" color={PURPLE}>
