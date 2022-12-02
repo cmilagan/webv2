@@ -46,7 +46,7 @@ const Hero = () => {
           spacing={1}
         >
           <Typography variant="h5">
-            Hello friends! I'm
+            Hello there! I'm
           </Typography>
           <Typography variant="h2" color={WHITE}>
             Christian Ilagan
