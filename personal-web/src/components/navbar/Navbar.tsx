@@ -37,7 +37,9 @@ const StyledNavLink = styled(ScrollLink)`
   position: relative;
   transition: all 0.3s ease-in;
   &.active {
-    color: ${PURPLE};
+    svg {
+      color: ${PURPLE};
+    }
   }
 
   &:hover {
@@ -115,21 +117,25 @@ const Navbar = () => {
           <LogoIcon src={Lsub} alt="cmilagan." />
         </StyledLink>
 
-        <Stack
-          sx={{ width: "70px" }}
-          direction="column"
-          spacing={8}
-        >
-          <StyledNavLink to="hero" activeClass="active" spy smooth duration={500}>
-            <IconButton icon={faHome}/>
-          </StyledNavLink>
-          <StyledNavLink to="about" activeClass="active" spy smooth duration={500}>
-            <IconButton icon={faUser}/>
-          </StyledNavLink>
-          <StyledNavLink to="projects" activeClass="active" spy smooth duration={500}>
-            <IconButton icon={faLaptop}/>
-          </StyledNavLink>
-        </Stack>
+        <nav>
+          <Stack
+            sx={{ width: "70px" }}
+            direction="column"
+            spacing={8}
+          >
+              <StyledNavLink to="hero" activeClass="active" spy smooth duration={500}>
+                <IconButton icon={faHome}/>
+              </StyledNavLink>
+              <StyledNavLink to="about" activeClass="active" spy smooth duration={500}>
+                <IconButton icon={faUser}/>
+              </StyledNavLink>
+              <StyledNavLink to="projects" activeClass="active" spy smooth duration={500}>
+                <IconButton icon={faLaptop}/>
+              </StyledNavLink>
+              
+          </Stack>
+
+        </nav>
         <Stack
           sx={{marginBottom: '12px'}}
           direction="column"
