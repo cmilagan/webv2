@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import styled from "styled-components";
 import Logo from '../../assets/images/logo.png';
 import Lsub from '../../assets/images/logosubtitle.png';
@@ -30,7 +31,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
-const StyledNavLink = styled(NavLink)`
+const StyledNavLink = styled(ScrollLink)`
   color: ${GREY};
   text-decoration: none;
   position: relative;
@@ -42,8 +43,9 @@ const StyledNavLink = styled(NavLink)`
   &:hover {
     color: ${PURPLE};
     transition: all 0.3s ease;
+    cursor: pointer;
     svg {
-      transition: all 0.3s ease-out;
+      transition: all 0.3s ease-in;
       opacity: 0;
     }
 
@@ -118,13 +120,13 @@ const Navbar = () => {
           direction="column"
           spacing={8}
         >
-          <StyledNavLink to="/">
+          <StyledNavLink to="hero" activeClass="active" spy smooth duration={500}>
             <IconButton icon={faHome}/>
           </StyledNavLink>
-          <StyledNavLink to="/about">
+          <StyledNavLink to="about" activeClass="active" spy smooth duration={500}>
             <IconButton icon={faUser}/>
           </StyledNavLink>
-          <StyledNavLink to="/projects">
+          <StyledNavLink to="projects" activeClass="active" spy smooth duration={500}>
             <IconButton icon={faLaptop}/>
           </StyledNavLink>
         </Stack>

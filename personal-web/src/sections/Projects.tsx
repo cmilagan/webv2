@@ -7,24 +7,26 @@ import StyledTitle from "../components/title";
 const Projects = () => {
     
   return (
-    <Section size="sm" color={DARKGREY}>
-      <Container
-        maxWidth="lg"
-        sx={{
-          paddingRight: "2rem",
-        }}
-      >
-        <Stack
-          direction="column"
-          spacing={4}
+    <div id="projects">
+      <Section size="sm" color={DARKGREY}>
+        <Container
+          maxWidth="lg"
+          sx={{
+            paddingRight: "2rem",
+          }}
         >
-          <StyledTitle variant="h5" color={WHITE}>
-            Selected Projects
-          </StyledTitle>
-        </Stack>
+          <Stack
+            direction="column"
+            spacing={4}
+          >
+            <StyledTitle variant="h5" color={WHITE}>
+              Selected Projects
+            </StyledTitle>
+          </Stack>
 
-      </Container>
-    </Section>
+        </Container>
+      </Section>
+    </div>
   )
 }
 

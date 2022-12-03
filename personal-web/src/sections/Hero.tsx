@@ -31,7 +31,7 @@ const Hero = () => {
   const theme = useTheme()
   
   return (
-    <>
+    <div id="hero">
       <ParticleBackground/>
       <Section size="sm" color={BLACK}>
 
@@ -109,7 +109,7 @@ const Hero = () => {
           </Stack>
         </Stack>
       </Section>
-    </>
+    </div>
   )
 }
 

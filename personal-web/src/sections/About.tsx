@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import Section from "../components/section";
 import styled from "styled-components";
 import { DARKGREY, PURPLE, WHITE } from "../utils/constants";
@@ -18,57 +18,59 @@ const StyledImage = styled.img`
 
 const About = () => {
   return (
-    <Section size="md" color={DARKGREY}>
-      <Container
-        maxWidth="lg"
-        sx={{
-          paddingTop: "6rem",
-          paddingBottom: "6rem",
-          paddingRight: "2rem",
-        }}
-        
-      >
-        <Stack
-          direction="column"
-          spacing={4}
+    <div id="about">
+      <Section size="md" color={DARKGREY}>
+        <Container
+          maxWidth="lg"
+          sx={{
+            paddingTop: "6rem",
+            paddingBottom: "6rem",
+            paddingRight: "2rem",
+          }}
+          
         >
-          <StyledTitle variant="h5" color={WHITE}>
-            About Me
-          </StyledTitle>
-          <Grid
-            container
-            spacing={2}  
+          <Stack
+            direction="column"
+            spacing={4}
           >
-            <Grid item md={6} xs={12}>
-              <Typography variant="body1">
-                Hello! I'm Christian, a recent graduate of Computer Science at UNSW. I am
-                interested in areas of full stack development, including that of web and mobile
-                applications. Currently I'm working as full stack intern working with the .NET framework
-                at Trimble.
-              </Typography>
-              <Typography variant="body1">
-                Aside from academics, I enjoy challenging myself through creation of my own personal
-                projects, targeting problems I face. Some of my favourite projects will be displayed
-                here :D.
-              </Typography>
-              <Typography variant="body1">
-                Technical work aside, I am a person who is always open to exploration and trying out new ideas.
-                Many of my passions include the gym and sports such as Basketball, Volleyball and more recently MMA such as
-                Kickboxing and Mauythai.
-              </Typography>
+            <StyledTitle variant="h5" color={WHITE}>
+              About Me
+            </StyledTitle>
+            <Grid
+              container
+              spacing={2}  
+            >
+              <Grid item md={6} xs={12}>
+                <Typography variant="body1">
+                  Hello! I'm Christian, a recent graduate of Computer Science at UNSW. I am
+                  interested in areas of full stack development, including that of web and mobile
+                  applications. Currently I'm working as full stack intern working with the .NET framework
+                  at Trimble.
+                </Typography>
+                <Typography variant="body1">
+                  Aside from academics, I enjoy challenging myself through creation of my own personal
+                  projects, targeting problems I face. Some of my favourite projects will be displayed
+                  here :D.
+                </Typography>
+                <Typography variant="body1">
+                  Technical work aside, I am a person who is always open to exploration and trying out new ideas.
+                  Many of my passions include the gym and sports such as Basketball, Volleyball and more recently MMA such as
+                  Kickboxing and Mauythai.
+                </Typography>
+              </Grid>
+              <Grid item md={6} xs={12}>
+                <Stack
+                  direction="row"
+                  spacing={1}
+                >
+                  <StyledImage src={ME} alt="pic_of_me" />
+                </Stack>
+              </Grid>
             </Grid>
-            <Grid item md={6} xs={12}>
-              <Stack
-                direction="row"
-                spacing={1}
-              >
-                <StyledImage src={ME} alt="pic_of_me" />
-              </Stack>
-            </Grid>
-          </Grid>
-        </Stack>
-      </Container>
-    </Section>
+          </Stack>
+        </Container>
+      </Section>
+    </div>
   )
 }
 
