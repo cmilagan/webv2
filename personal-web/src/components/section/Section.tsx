@@ -3,9 +3,11 @@ import styled from "styled-components";
 import { GREY } from "../../utils/constants";
 
 const Wrapper = styled.div<WrapperProps>`
-  min-height: ${(props) => props.size ? props.size : "60vh"};
+  min-height: ${(props) => props.size ? props.size: "0px"};
   margin-left: 70px;
   background-color: ${(props) => props.color ? props.color : GREY};
+  display: flex;
+  align-items: center;
 `
 
 

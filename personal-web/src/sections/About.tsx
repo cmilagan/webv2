@@ -19,6 +19,7 @@ const StyledTitle = styled(Typography)`
 
 const StyledImage = styled.img`
   width: 100%;
+  height: auto;
   border-radius: 15px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   object-fit: contain;
@@ -29,7 +30,7 @@ const About = () => {
   const theme = useTheme();
   return (
     <Section size="md" color={DARKGREY}>
-      <Container maxWidth="lg" style={{paddingTop: "6rem"}}>
+      <Container maxWidth="lg" style={{paddingTop: "6rem", paddingBottom: "6rem"}}>
         <Stack
           direction="column"
           spacing={4}
