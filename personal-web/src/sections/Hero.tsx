@@ -39,6 +39,7 @@ const Hero = () => {
           sx={{
             height: "100%",
             marginLeft: "2rem",
+            marginRight: "2rem",
             zIndex: 1,
           }}
           justifyContent="center"

@@ -30,7 +30,15 @@ const About = () => {
   const theme = useTheme();
   return (
     <Section size="md" color={DARKGREY}>
-      <Container maxWidth="lg" style={{paddingTop: "6rem", paddingBottom: "6rem"}}>
+      <Container
+        maxWidth="lg"
+        sx={{
+          paddingTop: "6rem",
+          paddingBottom: "6rem",
+          paddingRight: "2rem",
+        }}
+        
+      >
         <Stack
           direction="column"
           spacing={4}
