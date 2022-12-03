@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Layout from "../components/layout";
 import Hero from "../sections/Hero";
 import About from "../sections/About";
+import Projects from "../sections/Projects";
 
 
 const Landing = () => {
@@ -10,6 +11,7 @@ const Landing = () => {
     <Layout>
       <Hero />
       <About />
+      <Projects />      
     </Layout>
   )
 }

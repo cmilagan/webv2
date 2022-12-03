@@ -1,21 +1,11 @@
 import React from "react";
 import Section from "../components/section";
 import styled from "styled-components";
-import { DARKGREY, LIGHTGREY, PURPLE, WHITE } from "../utils/constants";
-import { Stack, Container, useTheme, Typography, Grid } from "@mui/material";
+import { DARKGREY, PURPLE, WHITE } from "../utils/constants";
+import { Stack, Container, Typography, Grid } from "@mui/material";
 import ME from "../assets/images/me.jpg"
+import StyledTitle from "../components/title";
 
-
-const StyledTitle = styled(Typography)`
-  &:after {
-    content:" ";
-    height: 2px;
-    width: 140px;
-    background: ${PURPLE};
-    display: block;
-    top: 50%;
-  }
-`
 
 const StyledImage = styled.img`
   width: 100%;
@@ -27,7 +17,6 @@ const StyledImage = styled.img`
 
 
 const About = () => {
-  const theme = useTheme();
   return (
     <Section size="md" color={DARKGREY}>
       <Container

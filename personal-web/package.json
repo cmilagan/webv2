@@ -27,6 +27,7 @@
     "loaders.css": "^0.1.2",
     "polished": "^4.2.2",
     "react": "^18.2.0",
+    "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-leaflet": "^4.2.0",
