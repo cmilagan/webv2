@@ -19,7 +19,7 @@ const StyledImage = styled.img`
 const About = () => {
   return (
     <div id="about">
-      <Section size="md" color={DARKGREY} align="flex-start">
+      <Section size="sm" color={DARKGREY} align="flex-start">
         <Container
           maxWidth="lg"
           sx={{

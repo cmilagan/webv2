@@ -1,4 +1,5 @@
 {
+  "homepage": "http://cmilagan.github.io/webv2/",
   "name": "personal-web",
   "version": "0.1.0",
   "private": true,
@@ -22,6 +23,7 @@
     "@types/react-scroll": "^1.8.5",
     "@types/styled-components": "^5.1.26",
     "animate.css": "^4.1.1",
+    "gh-pages": "^4.0.0",
     "gsap-trial": "^3.11.3",
     "itype": "^3.0.1",
     "ityped": "^1.0.3",
