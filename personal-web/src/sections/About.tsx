@@ -19,7 +19,7 @@ const StyledImage = styled.img`
 const About = () => {
   return (
     <div id="about">
-      <Section size="md" color={DARKGREY}>
+      <Section size="md" color={DARKGREY} align="flex-start">
         <Container
           maxWidth="lg"
           sx={{
@@ -33,7 +33,7 @@ const About = () => {
             direction="column"
             spacing={4}
           >
-            <StyledTitle variant="h5" color={WHITE}>
+            <StyledTitle variant="h5" color={WHITE} size="sm">
               About Me
             </StyledTitle>
             <Grid
@@ -44,7 +44,7 @@ const About = () => {
                 <Typography variant="body1">
                   Hello! I'm Christian, a recent graduate of Computer Science at UNSW. I am
                   interested in areas of full stack development, including that of web and mobile
-                  applications. Currently I'm working as full stack intern working with the .NET framework
+                  applications. Currently I'm working as a full stack intern working with the .NET framework
                   at Trimble.
                 </Typography>
                 <Typography variant="body1">

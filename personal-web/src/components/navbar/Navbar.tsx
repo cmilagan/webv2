@@ -37,7 +37,7 @@ const StyledNavLink = styled(ScrollLink)`
   position: relative;
   transition: all 0.3s ease-in;
   &.active {
-    svg {
+    * {
       color: ${PURPLE};
     }
   }

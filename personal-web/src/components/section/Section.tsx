@@ -7,13 +7,14 @@ const Wrapper = styled.div<WrapperProps>`
   margin-left: 70px;
   background-color: ${(props) => props.color ? props.color : GREY};
   display: flex;
-  align-items: center;
+  align-items: ${(props) => props.align ? props.align : "flex-start"};
 `
 
 
 interface WrapperProps {
   color: string;
   size: string;
+  align: string;
   children: React.ReactNode;
 }
 
@@ -25,9 +26,9 @@ const sizes = {
 }
 
 
-const Section:React.FC<WrapperProps> = ({color, size, children}) => {
+const Section:React.FC<WrapperProps> = ({color, size, align, children}) => {
   return (
-    <Wrapper size={sizes[size as keyof typeof sizes]} color={color}>
+    <Wrapper size={sizes[size as keyof typeof sizes]} color={color} align={align}>
       {children}
     </Wrapper>
   )

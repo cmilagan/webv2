@@ -33,7 +33,7 @@ const Hero = () => {
   return (
     <div id="hero">
       <ParticleBackground/>
-      <Section size="sm" color={BLACK}>
+      <Section size="sm" color={BLACK} align="center">
 
         <Stack
           sx={{
