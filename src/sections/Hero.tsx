@@ -100,7 +100,7 @@ const Hero = () => {
               </StyledButton>
             </a>
             <a
-              href="/Resume.pdf" download="Christian's Resume"
+              href="/https://github.com/cmilagan/webv2/blob/master/src/assets/images/Resume%20(7).pdf" download="Christian's Resume"
             >
               <StyledButton>
                 View Resume
