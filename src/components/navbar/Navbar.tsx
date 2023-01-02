@@ -14,6 +14,7 @@ import {
   AiFillMail,
 } from "react-icons/ai";
 import { BLACK, GREY, PURPLE} from '../../utils/constants'
+import { Paper, IconButton as muiIconButton } from "@mui/material";
 
 const Wrapper = styled.div`
   background: ${BLACK};
@@ -104,68 +105,77 @@ const IconButton = styled(FontAwesomeIcon)`
 const Navbar = () => {
   const theme = useTheme();
   return (
-    <Wrapper>
-      <Stack
-        sx={{ height: '100%', textAlign: 'center' }}
-        direction="column"
-        justifyContent="space-between"
-        alignItems="center"
-      >
-
-        <StyledLink to="/webv2/">
-          <LogoIcon src={Logo} alt="logo" />
-          <LogoIcon src={Lsub} alt="cmilagan." />
-        </StyledLink>
-
-        <nav>
+    <>
+      <Paper sx={{ display: { xs: "none", sm: "block" } }}>
+        <Wrapper>
           <Stack
-            sx={{ width: "70px" }}
+            sx={{ height: '100%', textAlign: 'center' }}
             direction="column"
-            spacing={8}
+            justifyContent="space-between"
+            alignItems="center"
           >
-              <StyledNavLink to="hero" activeClass="active" spy smooth duration={500}>
-                <IconButton icon={faHome}/>
-              </StyledNavLink>
-              <StyledNavLink to="about" activeClass="active" spy smooth duration={500}>
-                <IconButton icon={faUser}/>
-              </StyledNavLink>
-              <StyledNavLink to="projects" activeClass="active" spy smooth duration={500}>
-                <IconButton icon={faLaptop}/>
-              </StyledNavLink>
-              
-          </Stack>
 
-        </nav>
-        <Stack
-          sx={{marginBottom: '12px'}}
-          direction="column"
-          spacing={1}
-          alignItems="center"
-        >
-          <a
-            target="_blank"
-            rel="norefferer"
-            href="https://www.linkedin.com/in/cmilagan/"
-          >
-            <AiFillLinkedin color={theme.palette.background.default} fontSize="18px"/>
-          </a>
-          <a
-            target="_blank"
-            rel="norefferer"
-            href="https://github.com/cmilagan"
-          >
-            <AiOutlineGithub color={theme.palette.background.default} fontSize="18px"/>
-          </a>
-          <a
-            target="_blank"
-            rel="norefferer"
-            href="mailto:cmilagan7@gmail.com"
-          >
-            <AiFillMail color={theme.palette.background.default} fontSize="18px"/>
-          </a>
-        </Stack>
-      </Stack>
-    </Wrapper>
+            <StyledLink to="/webv2/">
+              <LogoIcon src={Logo} alt="logo" />
+              <LogoIcon src={Lsub} alt="cmilagan." />
+            </StyledLink>
+
+            <nav>
+              <Stack
+                sx={{ width: "70px" }}
+                direction="column"
+                spacing={8}
+              >
+                  <StyledNavLink to="hero" activeClass="active" spy smooth duration={500}>
+                    <IconButton icon={faHome}/>
+                  </StyledNavLink>
+                  <StyledNavLink to="about" activeClass="active" spy smooth duration={500}>
+                    <IconButton icon={faUser}/>
+                  </StyledNavLink>
+                  <StyledNavLink to="projects" activeClass="active" spy smooth duration={500}>
+                    <IconButton icon={faLaptop}/>
+                  </StyledNavLink>
+                  
+              </Stack>
+
+            </nav>
+            <Stack
+              sx={{marginBottom: '12px'}}
+              direction="column"
+              spacing={1}
+              alignItems="center"
+            >
+              <a
+                target="_blank"
+                rel="norefferer"
+                href="https://www.linkedin.com/in/cmilagan/"
+              >
+                <AiFillLinkedin color={theme.palette.background.default} fontSize="18px"/>
+              </a>
+              <a
+                target="_blank"
+                rel="norefferer"
+                href="https://github.com/cmilagan"
+              >
+                <AiOutlineGithub color={theme.palette.background.default} fontSize="18px"/>
+              </a>
+              <a
+                target="_blank"
+                rel="norefferer"
+                href="mailto:cmilagan7@gmail.com"
+              >
+                <AiFillMail color={theme.palette.background.default} fontSize="18px"/>
+              </a>
+            </Stack>
+          </Stack>
+        </Wrapper>
+      </Paper>
+
+      <Paper sx={{ display: { xs: "block", sm: "none" } }}>
+
+      </Paper>
+      
+    </>
   );
 };
 
