@@ -112,7 +112,7 @@ const Navbar = () => {
         alignItems="center"
       >
 
-        <StyledLink to="/">
+        <StyledLink to="/webv2/">
           <LogoIcon src={Logo} alt="logo" />
           <LogoIcon src={Lsub} alt="cmilagan." />
         </StyledLink>
