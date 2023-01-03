@@ -29,7 +29,21 @@ const StyledButton = styled.button`
 
 const Hero = () => {
   const theme = useTheme()
-  
+  // Function will execute on click of button
+  const onButtonClick = () => {
+    // using Java Script method to get PDF file
+    fetch('cmilaganresume.pdf').then(response => {
+        response.blob().then(blob => {
+            // Creating new object of PDF file
+            const fileURL = window.URL.createObjectURL(blob);
+            // Setting various property values
+            let alink = document.createElement('a');
+            alink.href = fileURL;
+            alink.download = 'cmilaganresume.pdf';
+            alink.click();
+        })
+    })
+}
   return (
     <div id="hero">
       <ParticleBackground/>
@@ -99,13 +113,9 @@ const Hero = () => {
                 Get in Touch
               </StyledButton>
             </a>
-            <a
-              href="https://github.com/cmilagan/webv2/blob/master/src/assets/images/cmilaganresume.pdf" download="Christian's Resume"
-            >
-              <StyledButton>
-                View Resume
-              </StyledButton>
-            </a>
+            <StyledButton onClick={onButtonClick}>
+              View Resume
+            </StyledButton>
           </Stack>
         </Stack>
       </Section>

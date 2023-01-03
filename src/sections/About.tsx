@@ -38,14 +38,13 @@ const About = () => {
             </StyledTitle>
             <Grid
               container
-              spacing={2}  
+              spacing={1}  
             >
               <Grid item md={6} xs={12}>
                 <Typography variant="body1">
                   Hello! I'm Christian, a recent graduate of Computer Science at UNSW. I am
                   interested in areas of full stack development, including that of web and mobile
-                  applications. Currently I'm working as a full stack intern working with the .NET framework
-                  at Trimble.
+                  applications. Currently I'm working as a Software Engineering Intern working at Trimble.
                 </Typography>
                 <Typography variant="body1">
                   Aside from academics, I enjoy challenging myself through creation of my own personal

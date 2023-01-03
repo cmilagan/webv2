@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import styled from "styled-components";
@@ -13,8 +13,12 @@ import {
   AiFillLinkedin,
   AiFillMail,
 } from "react-icons/ai";
-import { BLACK, GREY, PURPLE} from '../../utils/constants'
-import { Paper, IconButton as muiIconButton } from "@mui/material";
+import {
+  RxHamburgerMenu,
+} from "react-icons/rx"
+import { BLACK, GREY, PURPLE, WHITE} from '../../utils/constants'
+import { Paper, IconButton, SwipeableDrawer, Divider, Button, Container } from "@mui/material";
+import { flexbox } from "@mui/system";
 
 const Wrapper = styled.div`
   background: ${BLACK};
@@ -24,6 +28,17 @@ const Wrapper = styled.div`
   top: 0;
   z-index: 3;
   min-height: 500px
+`
+
+const HamburgerWrapper = styled.div`
+  background-color: transparent;
+  width: 100vw;
+  display: flex;
+  flex-direction: row-reverse;
+  top: 10px;
+  right: 10px;
+  position: fixed;
+  z-index: 3;
 `
 
 const StyledLink = styled(Link)`
@@ -95,7 +110,7 @@ const LogoIcon = styled.img`
   height: auto;
 `
 
-const IconButton = styled(FontAwesomeIcon)`
+const StyledIcon = styled(FontAwesomeIcon)`
   font-size: 22px;
   color: ${GREY};
 `
@@ -104,6 +119,7 @@ const IconButton = styled(FontAwesomeIcon)`
 
 const Navbar = () => {
   const theme = useTheme();
+  const [open, setOpen] = useState(false);
   return (
     <>
       <Paper sx={{ display: { xs: "none", sm: "block" } }}>
@@ -127,13 +143,13 @@ const Navbar = () => {
                 spacing={8}
               >
                   <StyledNavLink to="hero" activeClass="active" spy smooth duration={500}>
-                    <IconButton icon={faHome}/>
+                    <StyledIcon icon={faHome}/>
                   </StyledNavLink>
                   <StyledNavLink to="about" activeClass="active" spy smooth duration={500}>
-                    <IconButton icon={faUser}/>
+                    <StyledIcon icon={faUser}/>
                   </StyledNavLink>
                   <StyledNavLink to="projects" activeClass="active" spy smooth duration={500}>
-                    <IconButton icon={faLaptop}/>
+                    <StyledIcon icon={faLaptop}/>
                   </StyledNavLink>
                   
               </Stack>
@@ -171,9 +187,46 @@ const Navbar = () => {
         </Wrapper>
       </Paper>
 
-      <Paper sx={{ display: { xs: "block", sm: "none" } }}>
-
+      <Paper sx={{ display: { xs: "flex", sm: "none" } }}>
+        <HamburgerWrapper>
+          <IconButton onClick={() => {setOpen(true)}}>
+            <RxHamburgerMenu color={WHITE} size="40px"/>
+          </IconButton>
+        </HamburgerWrapper>
       </Paper>
+      <SwipeableDrawer
+        anchor="top"
+        open={open}
+        onOpen={() => {setOpen(true)}}
+        onClose={() => {setOpen(false)}}
+      >
+        <Container
+          sx={{
+            marginTop: "20px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
+          <Stack direction="column" spacing={3}>
+            <ScrollLink to="hero" activeClass="active" spy smooth duration={500}>
+              <Button variant="text" onClick={() => {setOpen(false)}} startIcon={<StyledIcon icon={faHome}/>}>
+              </Button>
+            </ScrollLink>
+            <ScrollLink to="about" activeClass="active" spy smooth duration={500}>
+              <Button variant="text" onClick={() => {setOpen(false)}} startIcon={<StyledIcon icon={faUser}/>}>
+              </Button>
+            </ScrollLink>
+            <ScrollLink to="projects" activeClass="active" spy smooth duration={500}>
+              <Button variant="text" onClick={() => {setOpen(false)}} startIcon={<StyledIcon icon={faLaptop}/>}>
+              </Button>
+            </ScrollLink>
+            <Divider />
+
+          </Stack>
+
+        </Container>
+      </SwipeableDrawer>
       
     </>
   );
