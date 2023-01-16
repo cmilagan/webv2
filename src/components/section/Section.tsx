@@ -16,13 +16,14 @@ const Wrapper = styled.div<WrapperProps>`
 
 interface WrapperProps {
   color: string;
-  size: string;
-  align: string;
-  children: React.ReactNode;
+  size?: string;
+  align?: string;
+  children?: React.ReactNode;
 }
 
 
 const sizes = {
+  xs: "40vh",
   sm: "60vh",
   md: "70vh",
   lg: "100vh"

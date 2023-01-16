@@ -44,7 +44,7 @@ const About = () => {
                 <Typography variant="body1">
                   Hello! I'm Christian, a recent graduate of Computer Science at UNSW. I am
                   interested in areas of full stack development, including that of web and mobile
-                  applications. Currently I'm working as a Software Engineering Intern working at Trimble.
+                  applications. Currently I'm working as a QA engineer at Tyro Payments.
                 </Typography>
                 <Typography variant="body1">
                   Aside from academics, I enjoy challenging myself through creation of my own personal
@@ -54,7 +54,7 @@ const About = () => {
                 <Typography variant="body1">
                   Technical work aside, I am a person who is always open to exploration and trying out new ideas.
                   Many of my passions include the gym and sports such as Basketball, Volleyball and more recently MMA such as
-                  Kickboxing and Mauythai.
+                  Muay thai and Wrestling.
                 </Typography>
               </Grid>
               <Grid item md={6} xs={12}>
