@@ -3,6 +3,9 @@ import { BLACK, DARKGREY, WHITE } from "../utils/constants";
 import Section from "../components/section";
 import StyledTitle from "../components/title";
 import { Grid, Container, Typography, Stack } from "@mui/material";
+import { AiFillDatabase, AiOutlineSearch, } from "react-icons/ai";
+import { FiMonitor } from "react-icons/fi"
+import SkillCategory from "../components/skillcategory";
 
 const Skills = () => {
   return (
@@ -18,26 +21,25 @@ const Skills = () => {
             
           >
             <Stack
-              spacing={14}
+              spacing={8}
             >
               <Typography variant="h5" color={WHITE} textAlign="center">
                 Skills
               </Typography>
-              <Stack
-                direction="row"
-                spacing={5}
-                justifyContent="space-around"
+              <Grid 
+                container
+                rowSpacing={4}
               >
-                <div>
-                  hi
-                </div>
-                <div>
-                  hi
-                </div>
-                <div>
-                  hi
-                </div>
-              </Stack>
+                <Grid item xs={12} md={4}>
+                  <SkillCategory icon={<FiMonitor fontSize="64px"/>} title="Front End" />
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <SkillCategory icon={<AiFillDatabase fontSize="64px"/>} title="Back End" />
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <SkillCategory icon={<AiOutlineSearch fontSize="64px"/>} title="Quality Engineering" />
+                </Grid>
+              </Grid>
             </Stack>
         </Container>
       </Section>
