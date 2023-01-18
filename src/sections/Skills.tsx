@@ -3,20 +3,21 @@ import { BLACK, DARKGREY, WHITE } from "../utils/constants";
 import Section from "../components/section";
 import StyledTitle from "../components/title";
 import { Grid, Container, Typography, Stack } from "@mui/material";
-import { AiFillDatabase, AiOutlineSearch, } from "react-icons/ai";
+import { AiFillDatabase, AiOutlineSearch, AiOutlineCloud } from "react-icons/ai";
 import { FiMonitor } from "react-icons/fi"
 import SkillCategory from "../components/skillcategory";
+import { FRONTEND, BACKEND, QUALITYENGINEERING, CLOUD } from "../data/technologies";
 
 const Skills = () => {
   return (
     <div id="skills">
       <Section size="xs" color={BLACK} align="flex-start">
         <Container
-            maxWidth="xl"
             sx={{
               paddingTop: "2.5rem",
               paddingBottom: "2rem",
               paddingRight: "2.5rem",
+              width: "100vw"
             }}
             
           >
@@ -30,14 +31,17 @@ const Skills = () => {
                 container
                 rowSpacing={4}
               >
-                <Grid item xs={12} md={4}>
-                  <SkillCategory icon={<FiMonitor fontSize="64px"/>} title="Front End" />
+                <Grid item xs={12} md={3}>
+                  <SkillCategory icon={<FiMonitor fontSize="64px"/>} title="Front End" technologies={FRONTEND}/>
                 </Grid>
-                <Grid item xs={12} md={4}>
-                  <SkillCategory icon={<AiFillDatabase fontSize="64px"/>} title="Back End" />
+                <Grid item xs={12} md={3}>
+                  <SkillCategory icon={<AiFillDatabase fontSize="64px"/>} title="Back End" technologies={BACKEND}/>
                 </Grid>
-                <Grid item xs={12} md={4}>
-                  <SkillCategory icon={<AiOutlineSearch fontSize="64px"/>} title="Quality Engineering" />
+                <Grid item xs={12} md={3}>
+                  <SkillCategory icon={<AiOutlineSearch fontSize="64px"/>} title="QE / Automation" technologies={QUALITYENGINEERING}/>
+                </Grid>
+                <Grid item xs={12} md={3}>
+                  <SkillCategory icon={<AiOutlineCloud fontSize="64px"/>} title="Cloud" technologies={CLOUD}/>
                 </Grid>
               </Grid>
             </Stack>
