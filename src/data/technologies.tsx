@@ -44,7 +44,7 @@ export const BACKEND: Techonology[] = [
     image: <SiJava fontSize="32px"/>,
   },
   {
-    tech: 'Javascript',
+    tech: 'JavaScript',
     image: <SiJavascript fontSize="32px"/>,
   },
   {

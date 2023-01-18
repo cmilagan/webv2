@@ -25,7 +25,6 @@ const About = () => {
           sx={{
             paddingTop: "6rem",
             paddingBottom: "6rem",
-            paddingRight: "2rem",
           }}
           
         >

@@ -16,7 +16,6 @@ const Projects = () => {
           sx={{
             paddingTop: "4rem",
             paddingBottom: "4rem",
-            paddingRight: "2rem",
           }}
         >
           <Stack

@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography, Grid } from "@mui/material";
 import React from "react";
 import { LIGHTGREY } from "../../utils/constants";
 import { Modal, Box, Button } from "@mui/material";
@@ -15,7 +15,7 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: "80vw",
+  width: "60vw",
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -57,16 +57,25 @@ const SkillCategory:React.FC<SkillCategoryProps> = ({icon, title, technologies})
             <Typography id="modal-modal-title" variant="h6" component="h2" textAlign="center">
               {title}
             </Typography>
-            <Box sx={{ flexWrap: "wrap", flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
-              <Stack direction="row" spacing={7}>
-                {technologies.map((i: any, idx: number) => {
+            <Grid container justifyContent="center" alignItems="center" rowGap={2}>
+              {technologies.map((i: any, idx: number) => {
                   return (
-                    i["image"]
+                    <Grid
+                      item
+                      xs={12}
+                      sm={6}
+                      md={4}
+                      textAlign="center"
+                    >
+                      {i["image"]}
+                      <Typography variant="body2">
+                        {i["tech"]}
+                      </Typography>
+                    </Grid>
                   )
                 })}
-              </Stack>
-            </Box>
 
+            </Grid>
           </Stack>
         </Box>
       </Modal>

@@ -13,7 +13,6 @@ const Work = () => {
             sx={{
               paddingTop: "2.5rem",
               paddingBottom: "2rem",
-              paddingRight: "2.5rem",
             }}
             
           >
