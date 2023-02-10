@@ -31,8 +31,7 @@ const WorkItem = ({workExperience}: WorkItemProps) => {
               return (
                 <Grid
                   item
-                  xs={12}
-                  sm={6}
+                  xs={4}
                   md={4}
                   textAlign="center"
                 >
