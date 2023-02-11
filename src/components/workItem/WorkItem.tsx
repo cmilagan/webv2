@@ -20,10 +20,17 @@ const WorkItem = ({workExperience}: WorkItemProps) => {
             {workExperience.role}
           </Typography>
         </Grid>
+
         <Grid item xs={12} md={6}>
-          <Typography variant="body2" textAlign="left">
-            {workExperience.description}
-          </Typography>
+          <Stack direction="column" spacing={2}>
+            <Typography variant="body2" textAlign="left">
+              {workExperience.about}
+            </Typography>
+            <Typography variant="body2" textAlign="left">
+              {workExperience.description}
+            </Typography>
+
+          </Stack>
         </Grid>
         <Grid item xs={12} md={6} alignContent="center" textAlign="center">
           <Grid container justifyContent="center" alignItems="center" rowGap={8}>
