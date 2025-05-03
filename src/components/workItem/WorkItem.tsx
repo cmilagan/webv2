@@ -24,9 +24,6 @@ const WorkItem = ({workExperience}: WorkItemProps) => {
         <Grid item xs={12} md={6}>
           <Stack direction="column" spacing={2}>
             <Typography variant="body2" textAlign="left">
-              {workExperience.about}
-            </Typography>
-            <Typography variant="body2" textAlign="left">
               {workExperience.description}
             </Typography>
 

@@ -9,6 +9,7 @@ import unsw from "../assets/images/unsw.png";
 import styled from "styled-components";
 import WorkItem from "../components/workItem";
 import { TYRO, UNSW, TOSHIBA, TRIMBLE } from "../data/work";
+import { AnimatePresence, motion } from "framer-motion";
 
 const StyledImage = styled.img`
   float: left;
@@ -23,37 +24,81 @@ const StyledImage = styled.img`
 
 const Work = () => {
   const [activeComponent, setActiveComponent] = React.useState({});
+  const workItemRef = React.useRef<HTMLDivElement>(null);
+  React.useEffect(() => {
+    if (Object.keys(activeComponent).length > 0 && workItemRef.current) {
+      workItemRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [activeComponent]);
   return (
     <div id="skills">
       <Section size="xs" color={BLACK} align="flex-start">
         <Container
-            maxWidth="lg"
-            sx={{
-              paddingTop: "2.5rem",
-              paddingBottom: "2rem",
-            }}
-            
-          >
+          maxWidth="lg"
+          sx={{
+            paddingTop: "2.5rem",
+            paddingBottom: "2rem",
+          }}
+        >
+          <Stack spacing={8}>
+            <Typography variant="h5" color={WHITE} textAlign="center">
+              I've worked with
+            </Typography>
             <Stack
-              spacing={8}
+              direction="row"
+              rowGap={3}
+              spacing={4}
+              flexWrap="wrap"
+              justifyContent="space-around"
             >
-              <Typography variant="h5" color={WHITE} textAlign="center">
-                I've worked with
-              </Typography>
-              <Stack direction="row" rowGap={3} spacing={6} flexWrap="wrap" justifyContent="space-around">
-                <StyledImage src={unsw} height="80px" onClick={() => {setActiveComponent(UNSW)}}/> 
-                <StyledImage src={toshiba} height="80px" onClick={() => {setActiveComponent(TOSHIBA)}}/> 
-                <StyledImage src={trimble} height="80px" onClick={() => {setActiveComponent(TRIMBLE)}}/> 
-                <StyledImage src={tyro} height="80px" onClick={() => {setActiveComponent(TYRO)}}/>
-              </Stack>
-              { Object.keys(activeComponent).length === 0 ? "" :
-                <WorkItem workExperience={activeComponent} />            
-              }
+              <StyledImage
+                src={unsw}
+                height="80px"
+                onClick={() => {
+                  setActiveComponent(UNSW);
+                }}
+              />
+              <StyledImage
+                src={toshiba}
+                height="80px"
+                onClick={() => {
+                  setActiveComponent(TOSHIBA);
+                }}
+              />
+              <StyledImage
+                src={trimble}
+                height="80px"
+                onClick={() => {
+                  setActiveComponent(TRIMBLE);
+                }}
+              />
+              <StyledImage
+                src={tyro}
+                height="80px"
+                onClick={() => {
+                  setActiveComponent(TYRO);
+                }}
+              />
             </Stack>
+            <AnimatePresence mode="wait">
+              {Object.keys(activeComponent).length > 0 && (
+                <motion.div
+                  key={JSON.stringify(activeComponent)} // Unique key for each component
+                  ref={workItemRef}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <WorkItem workExperience={activeComponent} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </Stack>
         </Container>
       </Section>
     </div>
-  )
-}
+  );
+};
 
 export default Work;
