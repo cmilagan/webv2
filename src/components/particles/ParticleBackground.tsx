@@ -13,7 +13,7 @@ const ParticleBackground = () => {
       init={particlesInit}
       id="tsparticles"
       params={particlesConfig}
-      height="60vh"
+      height="100vh"
       style={{ position: 'absolute', zIndex: 0 }}
     />
   );

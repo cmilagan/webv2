@@ -1,8 +1,8 @@
 import React from "react";
-import Section from "../components/section";
+import Section from "../components/section/Section";
 import { DARKGREY, WHITE } from "../utils/constants";
 import { Container, Stack } from "@mui/material";
-import StyledTitle from "../components/title";
+import StyledTitle from "../components/styledtitle/StyledTitle";
 import PROJECTS from "../data/projects";
 import ProjectCard from "../components/card/ProjectCard";
 

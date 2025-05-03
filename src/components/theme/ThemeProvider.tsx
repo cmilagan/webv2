@@ -4,7 +4,7 @@ import {
     createTheme,
     responsiveFontSizes,
 } from '@mui/material/styles';
-import { BLACK, GREY, LIGHTGREY, PURPLE } from '../../utils/constants';
+import { BLACK, LIGHTGREY, PURPLE } from '../../utils/constants';
 
 const headingFont = 'Segoe UI';
 const bodyFont = 'Segoe UI';
@@ -27,7 +27,7 @@ let theme = createTheme({
       main: '#f50057',
     },
     background: {
-      default: GREY,
+      default: BLACK,
       paper: BLACK,
     },
   },
@@ -94,13 +94,11 @@ let theme = createTheme({
       fontFamily: bodyFont,
       fontWeight: 500,
       fontSize: '1rem',
-      marginBottom: '15px',
     },
     body2: {
       fontFamily: bodyFont,
       fontWeight: 500,
       fontSize: '0.9rem',
-      marginBottom: '5px',
     },
   },
 });

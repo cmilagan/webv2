@@ -1,10 +1,10 @@
 import React from "react";
-import Section from "../components/section";
+import Section from "../components/section/Section";
 import styled from "styled-components";
 import { DARKGREY, WHITE } from "../utils/constants";
 import { Stack, Container, Typography, Grid } from "@mui/material";
 import ME from "../assets/images/me.jpg"
-import StyledTitle from "../components/title";
+import StyledTitle from "../components/styledtitle/StyledTitle";
 
 
 const StyledImage = styled.img`

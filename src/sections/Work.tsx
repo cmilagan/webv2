@@ -1,6 +1,5 @@
 import React from "react";
 import { BLACK, WHITE } from "../utils/constants";
-import Section from "../components/section";
 import { Container, Typography, Stack } from "@mui/material";
 import toshiba from "../assets/images/toshiba.png";
 import trimble from "../assets/images/trimble.png";
@@ -10,6 +9,7 @@ import styled from "styled-components";
 import WorkItem from "../components/workItem";
 import { TYRO, UNSW, TOSHIBA, TRIMBLE } from "../data/work";
 import { AnimatePresence, motion } from "framer-motion";
+import Section from "../components/section/Section";
 
 const StyledImage = styled.img`
   float: left;
