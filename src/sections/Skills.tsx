@@ -1,7 +1,6 @@
 import React from "react";
-import { BLACK, DARKGREY, WHITE } from "../utils/constants";
+import { BLACK, WHITE } from "../utils/constants";
 import Section from "../components/section";
-import StyledTitle from "../components/title";
 import { Grid, Container, Typography, Stack } from "@mui/material";
 import { AiFillDatabase, AiOutlineSearch, AiOutlineCloud } from "react-icons/ai";
 import { FiMonitor } from "react-icons/fi"

@@ -1,7 +1,6 @@
 import Work from "../types/Work";
-import { FaReact, FaHtml5, FaCss3Alt  } from "react-icons/fa";
+import { FaReact  } from "react-icons/fa";
 import { SiTypescript, SiJavascript, SiDocker, SiCsharp, SiPython, SiExpress, SiSpring, SiCypress, SiJava, SiAmazonaws, SiMaterialui } from "react-icons/si";
-import { DiDjango } from "react-icons/di";
 
 
 export const TYRO: Work = {

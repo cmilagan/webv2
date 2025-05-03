@@ -1,8 +1,7 @@
 import React from "react";
-import { BLACK, DARKGREY, WHITE } from "../utils/constants";
+import { BLACK, WHITE } from "../utils/constants";
 import Section from "../components/section";
-import StyledTitle from "../components/title";
-import { Grid, Container, Typography, Stack } from "@mui/material";
+import { Container, Typography, Stack } from "@mui/material";
 import toshiba from "../assets/images/toshiba.png";
 import trimble from "../assets/images/trimble.png";
 import tyro from "../assets/images/tyro.png";

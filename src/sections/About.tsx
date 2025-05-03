@@ -1,7 +1,7 @@
-import React, {useRef} from "react";
+import React from "react";
 import Section from "../components/section";
 import styled from "styled-components";
-import { DARKGREY, PURPLE, WHITE } from "../utils/constants";
+import { DARKGREY, WHITE } from "../utils/constants";
 import { Stack, Container, Typography, Grid } from "@mui/material";
 import ME from "../assets/images/me.jpg"
 import StyledTitle from "../components/title";

@@ -1,11 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Section from "../components/section";
-import { Stack, Typography, Button, useTheme } from "@mui/material";
-import { LIGHTGREY, PURPLE, WHITE, BLACK, DARKGREY } from "../utils/constants";
+import { Stack, Typography, useTheme } from "@mui/material";
+import { PURPLE, WHITE, BLACK } from "../utils/constants";
 import styled from "styled-components";
 import Typewriter from 'typewriter-effect';
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
 import ParticleBackground from "../components/particles/ParticleBackground";
 
 const StyledButton = styled.button`

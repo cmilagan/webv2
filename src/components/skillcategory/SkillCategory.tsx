@@ -1,7 +1,7 @@
 import { Stack, Typography, Grid } from "@mui/material";
 import React from "react";
 import { LIGHTGREY } from "../../utils/constants";
-import { Modal, Box, Button } from "@mui/material";
+import { Modal, Box } from "@mui/material";
 import styled from "styled-components";
 
 interface SkillCategoryProps {

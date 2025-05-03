@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import styled from "styled-components";
 import Logo from '../../assets/images/logo.png';
@@ -18,7 +18,6 @@ import {
 } from "react-icons/rx"
 import { BLACK, GREY, PURPLE, WHITE} from '../../utils/constants'
 import { Paper, IconButton, SwipeableDrawer, Divider, Button, Container } from "@mui/material";
-import { flexbox } from "@mui/system";
 
 const Wrapper = styled.div`
   background: ${BLACK};

@@ -3,10 +3,6 @@ import Particles from "react-tsparticles";
 import particlesConfig from "./particle-config";
 import { loadFull } from "tsparticles";
 import type { Engine } from "tsparticles-engine";
-import styled from "styled-components";
-
-
-type ParticleProps = React.PropsWithChildren<{}>
 
 const ParticleBackground = () => {
   const particlesInit = async (engine: Engine): Promise<void> => {
