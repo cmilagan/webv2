@@ -3,7 +3,7 @@ import { Container, Paper, Stack, Typography, useTheme, IconButton, SwipeableDra
 import { PURPLE, WHITE, LIGHTGREY, GREY } from "../../utils/constants";
 import Typewriter from "typewriter-effect";
 import styled from "styled-components";
-import { Link as ScrollLink } from "react-scroll";
+import { Link as ScrollLink, scroller } from "react-scroll";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-router-dom";
 
@@ -76,7 +76,13 @@ const StyledNavLink = styled(ScrollLink)`
 const Nav = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
-
+  React.useEffect(() => {
+    scroller.scrollTo("about", {
+      smooth: true,
+      duration: 500,
+      offset: -50, // Adjust offset if you have a fixed navbar
+    });
+  }, []);
   return (
     <>
       {/* Desktop Navigation */}
