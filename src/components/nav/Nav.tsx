@@ -5,6 +5,12 @@ import Typewriter from "typewriter-effect";
 import styled from "styled-components";
 import { Link as ScrollLink } from "react-scroll";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { Link } from "react-router-dom";
+
+const StyledLink = styled(Link)`
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent */
+`;
 
 const HamburgerWrapper = styled.div`
   background-color: transparent;
@@ -70,7 +76,6 @@ const StyledNavLink = styled(ScrollLink)`
 const Nav = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("about");
 
   return (
     <>
@@ -138,14 +143,38 @@ const Nav = () => {
           <br />
           <nav>
             <Stack direction="column" spacing={2} id="scroll-container" sx={{ paddingLeft: "50px", width: "20%" }}>
-              <StyledNavLink to="about" activeClass="active" smooth spy duration={500}>
-                ABOUT
+              <StyledNavLink
+                to="about"
+                smooth={true}
+                duration={500}
+                spy={true}
+                activeClass="active"
+              >
+                <StyledLink to="/about">
+                  ABOUT
+                </StyledLink>
               </StyledNavLink>
-              <StyledNavLink to="experience" activeClass="active" smooth spy duration={500}>
-                EXPERIENCE
+              <StyledNavLink
+                to="experience"
+                smooth={true}
+                duration={500}
+                spy={true}
+                activeClass="active"
+              >
+                <StyledLink to="/experience">
+                  EXPERIENCE
+                </StyledLink>
               </StyledNavLink>
-              <StyledNavLink to="projects" activeClass="active" smooth spy duration={500}>
-                PROJECTS
+              <StyledNavLink
+                to="projects"
+                smooth={true}
+                duration={500}
+                spy={true}
+                activeClass="active"
+              >
+                <StyledLink to="/projects">
+                  PROJECTS
+                </StyledLink>
               </StyledNavLink>
             </Stack>
           </nav>
@@ -184,10 +213,11 @@ const Nav = () => {
               to="about"
               smooth={true}
               duration={500}
-              offset={-50}
+              spy={true}
+              activeClass="active"
               onClick={() => setOpen(false)}
             >
-              <Typography variant="h6" color={activeSection === "about" ? PURPLE : WHITE}>
+              <Typography variant="h6" color={WHITE}>
                 ABOUT
               </Typography>
             </ScrollLink>
@@ -195,10 +225,11 @@ const Nav = () => {
               to="experience"
               smooth={true}
               duration={500}
-              offset={-50}
+              spy={true}
+              activeClass="active"
               onClick={() => setOpen(false)}
             >
-              <Typography variant="h6" color={activeSection === "experience" ? PURPLE : WHITE}>
+              <Typography variant="h6" color={WHITE}>
                 EXPERIENCE
               </Typography>
             </ScrollLink>
@@ -206,10 +237,11 @@ const Nav = () => {
               to="projects"
               smooth={true}
               duration={500}
-              offset={-50}
+              spy={true}
+              activeClass="active"
               onClick={() => setOpen(false)}
             >
-              <Typography variant="h6" color={activeSection === "projects" ? PURPLE : WHITE}>
+              <Typography variant="h6" color={WHITE}>
                 PROJECTS
               </Typography>
             </ScrollLink>

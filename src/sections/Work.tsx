@@ -13,25 +13,30 @@ import Section from "../components/section/Section";
 
 const StyledImage = styled.img`
   float: left;
-  width:  100px;
+  width: 100px;
   height: 100px;
   object-fit: scale-down;
   &:hover {
     cursor: pointer;
     opacity: 0.4;
   }
-`
+`;
 
 const Work = () => {
   const [activeComponent, setActiveComponent] = React.useState({});
-  const workItemRef = React.useRef<HTMLDivElement>(null);
-  React.useEffect(() => {
-    if (Object.keys(activeComponent).length > 0 && workItemRef.current) {
-      workItemRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+  const sectionRef = React.useRef<HTMLDivElement>(null);
+
+  const handleWorkItemClick = (workItem: object) => {
+    setActiveComponent(workItem);
+
+    // Scroll back to the top of the section
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  }, [activeComponent]);
+  };
+
   return (
-    <div id="experience">
+    <div id="experience" ref={sectionRef}>
       <Section size="xs" color={BLACK} align="flex-start">
         <Container
           maxWidth="lg"
@@ -54,37 +59,28 @@ const Work = () => {
               <StyledImage
                 src={unsw}
                 height="80px"
-                onClick={() => {
-                  setActiveComponent(UNSW);
-                }}
+                onClick={() => handleWorkItemClick(UNSW)}
               />
               <StyledImage
                 src={toshiba}
                 height="80px"
-                onClick={() => {
-                  setActiveComponent(TOSHIBA);
-                }}
+                onClick={() => handleWorkItemClick(TOSHIBA)}
               />
               <StyledImage
                 src={trimble}
                 height="80px"
-                onClick={() => {
-                  setActiveComponent(TRIMBLE);
-                }}
+                onClick={() => handleWorkItemClick(TRIMBLE)}
               />
               <StyledImage
                 src={tyro}
                 height="80px"
-                onClick={() => {
-                  setActiveComponent(TYRO);
-                }}
+                onClick={() => handleWorkItemClick(TYRO)}
               />
             </Stack>
             <AnimatePresence mode="wait">
               {Object.keys(activeComponent).length > 0 && (
                 <motion.div
                   key={JSON.stringify(activeComponent)} // Unique key for each component
-                  ref={workItemRef}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}
