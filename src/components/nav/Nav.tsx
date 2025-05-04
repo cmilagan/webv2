@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Container, Paper, Stack, Typography, useTheme, IconButton, SwipeableDrawer, Button, Divider } from "@mui/material";
-import { PURPLE, WHITE, LIGHTGREY } from "../../utils/constants";
+import { Container, Paper, Stack, Typography, useTheme, IconButton, SwipeableDrawer, Divider } from "@mui/material";
+import { PURPLE, WHITE, LIGHTGREY, GREY } from "../../utils/constants";
 import Typewriter from "typewriter-effect";
 import styled from "styled-components";
 import { Link as ScrollLink } from "react-scroll";
@@ -13,27 +13,76 @@ const HamburgerWrapper = styled.div`
   flex-direction: row-reverse;
   top: 10px;
   right: 10px;
-  position: fixed;
+  position: sticky;
   z-index: 3;
 `;
 
 const FixedNavWrapper = styled(Paper)`
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   height: 100vh;
-  z-index: 2;
-  box-shadow: none;
+  z-index: 2; /* Ensure it's above the particles */
+`;
+
+const StyledNavLink = styled(ScrollLink)`
+  color: ${GREY};
+  text-decoration: none;
+  position: relative;
+  display: inline-block; /* Ensure proper alignment */
+  transition: all 0.3s ease-in;
+  width: 100%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -50px; /* Adjust spacing as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    width: ${(props) => (props.className?.includes("active") ? "80px" : "30px")};
+    height: 3px;
+    background-color: ${(props) => (props.className?.includes("active") ? PURPLE : GREY)};
+    transition: all 0.3s ease;
+  }
+
+  &.active {
+    color: ${PURPLE};
+    transform: translateX(10px); /* Move text slightly to the right */
+
+    &::before {
+      width: 40px; /* Full length when active */
+      background-color: ${PURPLE};
+    }
+  }
+
+  &:hover {
+    color: ${PURPLE};
+    transform: translateX(10px); /* Move text slightly to the right */
+    transition: all 0.3s ease;
+
+    &::before {
+      width: 40px; /* Expand line on hover */
+      background-color: ${PURPLE};
+    }
+  }
 `;
 
 const Nav = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("about");
 
   return (
     <>
       {/* Desktop Navigation */}
-      <FixedNavWrapper sx={{ display: { xs: "none", sm: "block" } }}>
+      <FixedNavWrapper
+        sx={{
+          display: { xs: "none", sm: "block" },
+          backgroundColor: "transparent",
+          boxShadow: "none",
+          width: "50vw",
+        }}
+      >
         <Stack
           spacing={1.25}
           sx={{
@@ -41,8 +90,10 @@ const Nav = () => {
             justifyContent: "center",
             display: "flex",
             flexDirection: "column",
+            boxShadow: "none",
             height: "100vh",
             marginLeft: "5vw",
+            backgroundColor: "transparent",
           }}
         >
           <Typography variant="h5" color={LIGHTGREY}>
@@ -85,16 +136,29 @@ const Nav = () => {
             Ensuring reliability/observability of software through automation, alerting, data collection and visualisation.
           </Typography>
           <br />
-          <Stack direction="column" spacing={3}>
-            <a> About </a>
-            <a> Experience </a>
-            <a> Projects </a>
-          </Stack>
+          <nav>
+            <Stack direction="column" spacing={2} id="scroll-container" sx={{ paddingLeft: "50px", width: "20%" }}>
+              <StyledNavLink to="about" activeClass="active" smooth spy duration={500}>
+                ABOUT
+              </StyledNavLink>
+              <StyledNavLink to="experience" activeClass="active" smooth spy duration={500}>
+                EXPERIENCE
+              </StyledNavLink>
+              <StyledNavLink to="projects" activeClass="active" smooth spy duration={500}>
+                PROJECTS
+              </StyledNavLink>
+            </Stack>
+          </nav>
         </Stack>
       </FixedNavWrapper>
 
       {/* Mobile Navigation */}
-      <Paper sx={{ display: { xs: "flex", sm: "none" } }}>
+      <Paper
+        sx={{
+          display: { xs: "flex", sm: "none" },
+          backgroundColor: "transparent",
+        }}
+      >
         <HamburgerWrapper>
           <IconButton onClick={() => setOpen(true)}>
             <RxHamburgerMenu color={WHITE} size="40px" />
@@ -116,26 +180,38 @@ const Nav = () => {
           }}
         >
           <Stack direction="column" spacing={5}>
-            <ScrollLink to="hero" activeClass="active" spy smooth duration={500}>
-              <Button variant="text" onClick={() => setOpen(false)}>
-                <Typography variant="h6" color={WHITE}>
-                  About
-                </Typography>
-              </Button>
+            <ScrollLink
+              to="about"
+              smooth={true}
+              duration={500}
+              offset={-50}
+              onClick={() => setOpen(false)}
+            >
+              <Typography variant="h6" color={activeSection === "about" ? PURPLE : WHITE}>
+                ABOUT
+              </Typography>
             </ScrollLink>
-            <ScrollLink to="about" activeClass="active" spy smooth duration={500}>
-              <Button variant="text" onClick={() => setOpen(false)}>
-                <Typography variant="h6" color={WHITE}>
-                  Experience
-                </Typography>
-              </Button>
+            <ScrollLink
+              to="experience"
+              smooth={true}
+              duration={500}
+              offset={-50}
+              onClick={() => setOpen(false)}
+            >
+              <Typography variant="h6" color={activeSection === "experience" ? PURPLE : WHITE}>
+                EXPERIENCE
+              </Typography>
             </ScrollLink>
-            <ScrollLink to="projects" activeClass="active" spy smooth duration={500}>
-              <Button variant="text" onClick={() => setOpen(false)}>
-                <Typography variant="h6" color={WHITE}>
-                  Projects
-                </Typography>
-              </Button>
+            <ScrollLink
+              to="projects"
+              smooth={true}
+              duration={500}
+              offset={-50}
+              onClick={() => setOpen(false)}
+            >
+              <Typography variant="h6" color={activeSection === "projects" ? PURPLE : WHITE}>
+                PROJECTS
+              </Typography>
             </ScrollLink>
             <Divider />
           </Stack>

@@ -8,6 +8,7 @@ const Wrapper = styled.div<WrapperProps>`
   background-color: ${(props) => props.color ? props.color : GREY};
   display: flex;
   align-items: ${(props) => props.align ? props.align : "flex-start"};
+  background-opacity: 0.1;
   @media screen and (max-width: 599px) {
     margin-left: 0px;
   }

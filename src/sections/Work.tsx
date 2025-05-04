@@ -27,11 +27,11 @@ const Work = () => {
   const workItemRef = React.useRef<HTMLDivElement>(null);
   React.useEffect(() => {
     if (Object.keys(activeComponent).length > 0 && workItemRef.current) {
-      workItemRef.current.scrollIntoView({ behavior: "smooth" });
+      workItemRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   }, [activeComponent]);
   return (
-    <div id="skills">
+    <div id="experience">
       <Section size="xs" color={BLACK} align="flex-start">
         <Container
           maxWidth="lg"
