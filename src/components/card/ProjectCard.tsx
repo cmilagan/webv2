@@ -27,15 +27,13 @@ const CardImg = styled.img`
   border-radius: 30px;
 `;
 
-const CardContent = styled.div<{ position: number }>`
+const CardContent = styled.div`
   width: 100%;
   height: 100%;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: ${(props) => (props.position % 2 ? 'flex-end' : 'flex-start')};
-  text-align: ${(props) => (props.position % 2 ? 'right' : 'left')};
   @media screen and (max-width: 600px) {
     align-items: center;
     text-align: center;
@@ -71,15 +69,12 @@ const CategoryWrapper = styled.div<{ colour: string }>`
   color: #333;
 `;
 
-const ProjectCard = ({title, description, github, deploy, img, categories, position, link}: ProjectCardProps) => {
+const ProjectCard = ({title, description, github, deploy, categories, link}: ProjectCardProps) => {
   return(
     <CardWrapper>
-      <Grid container spacing={2} direction={position % 2 ? 'row-reverse' : 'row'}>
-        <Grid item md={7} sm={7} xs={12}>
-          <CardImg src={img} alt={title} />
-        </Grid>
-        <Grid item md={5} sm={5} xs={12}>
-          <CardContent position={position}>
+      <Grid container spacing={2}>
+        <Grid item sm={12}>
+          <CardContent>
             <Typography variant="h5">{title}</Typography>
             <CardCatergories>
               {categories.map((category) => (

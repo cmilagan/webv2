@@ -8,28 +8,21 @@ interface WorkItemProps {
 
 const WorkItem = ({workExperience}: WorkItemProps) => {
   return (
-    <Container maxWidth="lg" sx={{ paddingBottom: "50px" }}>
-      <Grid container flexDirection="row" rowGap={6}>
-        <Grid item xs={12}>
-          <Typography variant="h5" textAlign="center" sx={{ textDecoration: "underline" }}>
-            {workExperience.company}
-          </Typography>
-        </Grid>
+    <Container maxWidth="lg">
+      <Grid container flexDirection="row" rowGap={4}>
         <Grid item xs={12}>
           <Typography variant="h6" textAlign="center">
-            {workExperience.role}
+          {workExperience.company} - {workExperience.role}
           </Typography>
         </Grid>
-
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12}>
           <Stack direction="column" spacing={2}>
             <Typography variant="body2" textAlign="left">
               {workExperience.description}
             </Typography>
-
           </Stack>
         </Grid>
-        <Grid item xs={12} md={6} alignContent="center" textAlign="center">
+        <Grid item xs={12} alignContent="center" textAlign="center">
           <Grid container justifyContent="center" alignItems="center" rowGap={8}>
             {workExperience.technologies.map((i: any, idx: number) => {
               return (

@@ -3,37 +3,29 @@ import styled from "styled-components";
 import { GREY } from "../../utils/constants";
 
 const Wrapper = styled.div<WrapperProps>`
-  min-height: ${(props) => props.size ? props.size: "0px"};
-  margin-left: 70px;
-  background-color: ${(props) => props.color ? props.color : GREY};
+  background-color: "transparent";
+
   display: flex;
   align-items: ${(props) => props.align ? props.align : "flex-start"};
   background-opacity: 0.1;
-  @media screen and (max-width: 599px) {
-    margin-left: 0px;
-  }
+  width: 100%;
+  backdropFilter: "blur(10px)",
+  WebkitBackdropFilter: "blur(10px)",
+  padding: "40px", // Added padding to make the section bigger
+  padding-left: "60px",
+  padding-right: "60px",
 `
 
-
 interface WrapperProps {
-  color: string;
-  size?: string;
+  color?: string;
   align?: string;
   children?: React.ReactNode;
+  style?: React.CSSProperties; // Added style prop
 }
 
-
-const sizes = {
-  xs: "40vh",
-  sm: "60vh",
-  md: "70vh",
-  lg: "100vh"
-}
-
-
-const Section:React.FC<WrapperProps> = ({color, size, align, children}) => {
+const Section:React.FC<WrapperProps> = ({color, align, children, style}) => {
   return (
-    <Wrapper size={sizes[size as keyof typeof sizes]} color={color} align={align}>
+    <Wrapper color={color} align={align} style={style}>
       {children}
     </Wrapper>
   )

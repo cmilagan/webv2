@@ -1,26 +1,15 @@
-import React, { useState } from "react";
-import { Container, Paper, Stack, Typography, useTheme, IconButton, SwipeableDrawer, Divider } from "@mui/material";
+import React, { useEffect } from "react";
+import { Paper, Stack, Typography, useTheme, Box } from "@mui/material";
 import { PURPLE, WHITE, LIGHTGREY, GREY } from "../../utils/constants";
 import Typewriter from "typewriter-effect";
 import styled from "styled-components";
 import { Link as ScrollLink, scroller } from "react-scroll";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const StyledLink = styled(Link)`
   text-decoration: none; /* Remove underline */
   color: inherit; /* Inherit color from parent */
-`;
-
-const HamburgerWrapper = styled.div`
-  background-color: transparent;
-  width: 100vw;
-  display: flex;
-  flex-direction: row-reverse;
-  top: 10px;
-  right: 10px;
-  position: sticky;
-  z-index: 3;
 `;
 
 const FixedNavWrapper = styled(Paper)`
@@ -29,6 +18,22 @@ const FixedNavWrapper = styled(Paper)`
   left: 0;
   height: 100vh;
   z-index: 2; /* Ensure it's above the particles */
+`;
+
+const SocialIcon = styled.a`
+  color: ${GREY};
+  font-size: 36px; /* Icon size */
+  width: 48px; /* Explicit width */
+  height: 48px; /* Explicit height */
+  display: flex; /* Center the icon */
+  align-items: center; /* Center the icon vertically */
+  justify-content: center; /* Center the icon horizontally */
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: ${PURPLE};
+    cursor: pointer; /* Ensure the cursor changes to a pointer */
+  }
 `;
 
 const StyledNavLink = styled(ScrollLink)`
@@ -73,22 +78,21 @@ const StyledNavLink = styled(ScrollLink)`
   }
 `;
 
-const Nav = () => {
+const Nav = ({ sx }: { sx?: object }) => {
   const theme = useTheme();
-  const [open, setOpen] = useState(false);
-  React.useEffect(() => {
+
+  useEffect(() => {
     scroller.scrollTo("about", {
       smooth: true,
       duration: 500,
       offset: -50, // Adjust offset if you have a fixed navbar
     });
   }, []);
+
   return (
-    <>
-      {/* Desktop Navigation */}
+    <Box sx={sx}>
       <FixedNavWrapper
         sx={{
-          display: { xs: "none", sm: "block" },
           backgroundColor: "transparent",
           boxShadow: "none",
           width: "50vw",
@@ -107,16 +111,46 @@ const Nav = () => {
             backgroundColor: "transparent",
           }}
         >
-          <Typography variant="h5" color={LIGHTGREY}>
+          {/* Header Text */}
+          <Typography
+            variant="h5"
+            color={LIGHTGREY}
+            sx={{
+              whiteSpace: "nowrap", // Prevent line breaks
+              textAlign: { xs: "center", sm: "left" }, // Center on xs screens
+            }}
+          >
             Hi, I'm
           </Typography>
-          <Typography variant="h3" color={WHITE}>
+          <Typography
+            variant="h3"
+            color={WHITE}
+            sx={{
+              whiteSpace: "nowrap", // Prevent line breaks
+              textAlign: { xs: "center", sm: "left" }, // Center on xs screens
+            }}
+          >
             Christian Ilagan
           </Typography>
-          <Typography variant="h4" color={WHITE} gutterBottom>
+          <Typography
+            variant="h4"
+            color={WHITE}
+            gutterBottom
+            sx={{
+              whiteSpace: "nowrap", // Prevent line breaks
+              textAlign: { xs: "center", sm: "left" }, // Center on xs screens
+            }}
+          >
             I am a
           </Typography>
-          <Typography variant="h4" color={PURPLE}>
+          <Typography
+            variant="h4"
+            color={PURPLE}
+            sx={{
+              whiteSpace: "nowrap", // Prevent line breaks
+              textAlign: { xs: "center", sm: "left" }, // Center on xs screens
+            }}
+          >
             <Typewriter
               options={{
                 strings: ["Site Reliability Engineer", "Developer", "Sports Enthusiast"],
@@ -127,11 +161,14 @@ const Nav = () => {
               }}
             />
           </Typography>
+
+          {/* Description */}
           <Typography
             variant="body2"
             sx={{
               [theme.breakpoints.between("xs", "sm")]: {
                 width: "70vw",
+                textAlign: "center", // Center text on xs screens
               },
               [theme.breakpoints.between("sm", "md")]: {
                 width: "45vw",
@@ -148,7 +185,7 @@ const Nav = () => {
           </Typography>
           <br />
           <nav>
-            <Stack direction="column" spacing={2} id="scroll-container" sx={{ paddingLeft: "50px", width: "20%" }}>
+            <Stack direction="column" spacing={2} id="scroll-container" sx={{ paddingLeft: "50px", width: "20%", display: { xs: "none", sm: "block" } }}>
               <StyledNavLink
                 to="about"
                 smooth={true}
@@ -184,78 +221,26 @@ const Nav = () => {
               </StyledNavLink>
             </Stack>
           </nav>
+          {/* Social Media Links */}
+          <Stack
+            direction="row"
+            spacing={3}
+            sx={{
+              marginTop: "auto",
+              justifyContent: "center", // Center icons
+              padding: "40px",
+            }}
+          >
+            <SocialIcon href="https://github.com/cmilagan" target="_blank" rel="noopener noreferrer">
+              <FaGithub />
+            </SocialIcon>
+            <SocialIcon href="https://www.linkedin.com/in/cmilagan/" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin />
+            </SocialIcon>
+          </Stack>
         </Stack>
       </FixedNavWrapper>
-
-      {/* Mobile Navigation */}
-      <Paper
-        sx={{
-          display: { xs: "flex", sm: "none" },
-          backgroundColor: "transparent",
-        }}
-      >
-        <HamburgerWrapper>
-          <IconButton onClick={() => setOpen(true)}>
-            <RxHamburgerMenu color={WHITE} size="40px" />
-          </IconButton>
-        </HamburgerWrapper>
-      </Paper>
-      <SwipeableDrawer
-        anchor="top"
-        open={open}
-        onOpen={() => setOpen(true)}
-        onClose={() => setOpen(false)}
-      >
-        <Container
-          sx={{
-            marginTop: "20px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Stack direction="column" spacing={5}>
-            <ScrollLink
-              to="about"
-              smooth={true}
-              duration={500}
-              spy={true}
-              activeClass="active"
-              onClick={() => setOpen(false)}
-            >
-              <Typography variant="h6" color={WHITE}>
-                ABOUT
-              </Typography>
-            </ScrollLink>
-            <ScrollLink
-              to="experience"
-              smooth={true}
-              duration={500}
-              spy={true}
-              activeClass="active"
-              onClick={() => setOpen(false)}
-            >
-              <Typography variant="h6" color={WHITE}>
-                EXPERIENCE
-              </Typography>
-            </ScrollLink>
-            <ScrollLink
-              to="projects"
-              smooth={true}
-              duration={500}
-              spy={true}
-              activeClass="active"
-              onClick={() => setOpen(false)}
-            >
-              <Typography variant="h6" color={WHITE}>
-                PROJECTS
-              </Typography>
-            </ScrollLink>
-            <Divider />
-          </Stack>
-        </Container>
-      </SwipeableDrawer>
-    </>
+    </Box>
   );
 };
 

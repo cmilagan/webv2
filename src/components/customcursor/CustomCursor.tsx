@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-  body, a, button, * {
+  body, a, button, svg, * {
     cursor: none !important; /* Forcefully hide the default cursor */
   }
 `;
