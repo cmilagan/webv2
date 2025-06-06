@@ -1,7 +1,7 @@
 import React from "react";
 import PageTemplate from "./templates/PageTemplate";
 import Nav from "./components/nav/Nav";
-import { Stack } from "@mui/material";
+import { Grid, Stack } from "@mui/material";
 import About from "./sections/About";
 import Projects from "./sections/Projects";
 import Work from "./sections/Work";
@@ -24,38 +24,43 @@ const Layout = ({ children }: LayoutProps) => {
   }, [location]);
 
   return (
-    <>
-      <PageTemplate>
-        <Stack
-          direction={{ xs: "column", sm: "row" }} // Stack vertically on xs, horizontally on sm+
-          spacing={2}
-          sx={{
-            backgroundColor: "transparent",
-            justifyContent: "center",
-            padding: "0 7.5vw",
-            position: "relative", // Ensure proper positioning for xs screens
-          }}
-        >
+    <PageTemplate>
+      <Grid container
+        direction={{ sm: "column", md: "row" }} // Stack vertically on xs, horizontally on sm+
+        alignItems="center"
+        flexWrap= "nowrap"
+      >
+        <Grid item sm={12} md={4} sx={{
+          height: "100vh", // Full height on medium screens, auto on smalle
+          display: "flex", // Ensure it takes full height
+          justifyContent: "center", // Center content vertically
+          alignItems: "center", // Center content horizontally
+          position:{ md: "fixed", sm:"sticky" }, // Make it sticky
+          width: { sm: "100%", md: "25%" }, // Full width on XS, 25% on MD+
+          paddingTop: { sm: "100px" },
+        }}>
           <Nav
             sx={{
-              position: { xs: "static", sm: "static" }, // Absolute positioning on xs
-              top: 0,
-              left: 0,
-              width: { xs: "100%", sm: "auto" }, // Full width on xs
-              zIndex: { xs: 10, sm: "auto" }, // Ensure Nav is above sections on xs
+              zIndex: 2, // Ensure it stays above other elements
+              display: "flex", // Ensure it remains visible
+              alignItems: "center", // Center content vertically
+              justifyContent: "center", // Center content horizontally
+              backgroundColor: "transparent", // No background
+              width: "100%", // Ensure it spans the full width of its container
+              height: "100%", // Ensure it spans the full height of its container
             }}
           />
-            <Stack
-            direction="column"
-            spacing={2}
-            sx={{
-              zIndex: 2,
-              backgroundColor: "transparent", // Semi-transparent white background
-              backdropFilter: "blur(10px)", // Apply blur effect
-              width: {xs: "100vw", md: "50vw"},
-              marginTop: { xs: "100px", sm: 0 }, // Add margin to avoid overlap on xs
-            }}
-            >
+        </Grid>
+        <Grid item sm={12} md={8} sx={{
+          marginLeft: { md: "50%" }, // Add margin to account for the fixed Nav width
+          zIndex: 2,
+          flex: 1,
+          backgroundColor: "transparent", // Semi-transparent white background
+          backdropFilter: "blur(10px)", // Apply blur effect
+          paddingTop: { xs: "100px" },
+          height: "100vh", // Ensure it spans the full height of the viewport
+        }}>
+          <Stack sx={{ padding: "20px"}}>
             <Element name="about">
               <About />
             </Element>
@@ -65,10 +70,10 @@ const Layout = ({ children }: LayoutProps) => {
             <Element name="projects">
               <Projects />
             </Element>
-            </Stack>
-        </Stack>
-      </PageTemplate>
-    </>
+          </Stack>
+        </Grid>
+      </Grid>
+    </PageTemplate>
   );
 };
 

@@ -40,7 +40,7 @@ const CustomCursor = () => {
 
     const handleMouseOver = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      if (target.tagName === "A" || target.tagName === "BUTTON" || target.onclick) {
+      if (target.tagName === "A" || target.tagName === "BUTTON" || target.tagName === "svg" || target.tagName === "path" || target.onclick) {
         setIsHovering(true);
       }
     };

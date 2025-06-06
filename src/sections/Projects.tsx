@@ -9,7 +9,9 @@ const Projects = () => {
     
   return (
     <div id="projects">
-      <Section color={DARKGREY} align="flex-start">
+      <Stack
+        sx={{ align: "flex-start" }}
+      >
         <Stack
           direction="column"
           spacing={4}
@@ -28,7 +30,7 @@ const Projects = () => {
             />
           ))}
         </Stack>
-      </Section>
+      </Stack>
     </div>
   )
 }

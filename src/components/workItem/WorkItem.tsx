@@ -32,7 +32,7 @@ const WorkItem = ({workExperience}: WorkItemProps) => {
                   md={4}
                   textAlign="center"
                 >
-                  <Typography color={WHITE}>
+                  <Typography color={WHITE} sx={{ textDecoration: "none", color: WHITE }}>
                     {i["image"]}
                   </Typography>
                 </Grid>

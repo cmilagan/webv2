@@ -36,7 +36,9 @@ const Work = () => {
 
   return (
     <div id="experience" ref={sectionRef}>
-      <Section align="flex-start">
+      <Stack
+        sx={{ align: "flex-start" }}
+      >
         <Stack spacing={4} direction="column">
           <Stack
             direction="row"
@@ -80,7 +82,7 @@ const Work = () => {
             )}
           </AnimatePresence>
         </Stack>
-      </Section>
+      </Stack>
     </div>
   );
 };

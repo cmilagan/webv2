@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Paper, Stack, Typography, useTheme, Box } from "@mui/material";
+import { Container, Stack, Typography, useTheme, Box } from "@mui/material";
 import { PURPLE, WHITE, LIGHTGREY, GREY } from "../../utils/constants";
 import Typewriter from "typewriter-effect";
 import styled from "styled-components";
@@ -10,14 +10,6 @@ import { Link } from "react-router-dom";
 const StyledLink = styled(Link)`
   text-decoration: none; /* Remove underline */
   color: inherit; /* Inherit color from parent */
-`;
-
-const FixedNavWrapper = styled(Paper)`
-  position: sticky;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  z-index: 2; /* Ensure it's above the particles */
 `;
 
 const SocialIcon = styled.a`
@@ -90,157 +82,147 @@ const Nav = ({ sx }: { sx?: object }) => {
   }, []);
 
   return (
-    <Box sx={sx}>
-      <FixedNavWrapper
+    <Container
+      sx={{
+        sx
+      }}
+    >
+      <Stack
+        spacing={1.25}
         sx={{
-          backgroundColor: "transparent",
+          justifyContent: "center",
+          display: "flex",
+          flexDirection: "column",
           boxShadow: "none",
-          width: "50vw",
+          height: "100%",
+          width: "100%",
+          backgroundColor: "transparent",
         }}
       >
-        <Stack
-          spacing={1.25}
+        {/* Header Text */}
+        <Typography
+          variant="h5"
+          color={LIGHTGREY}
           sx={{
-            width: "40vw",
-            justifyContent: "center",
-            display: "flex",
-            flexDirection: "column",
-            boxShadow: "none",
-            height: "100vh",
-            marginLeft: "5vw",
-            backgroundColor: "transparent",
+            whiteSpace: "nowrap",
+            fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" }, // Adjust font size dynamically
           }}
         >
-          {/* Header Text */}
-          <Typography
-            variant="h5"
-            color={LIGHTGREY}
-            sx={{
-              whiteSpace: "nowrap", // Prevent line breaks
-              textAlign: { xs: "center", sm: "left" }, // Center on xs screens
+          Hi, I'm
+        </Typography>
+        <Typography
+          variant="h3"
+          color={WHITE}
+          sx={{
+            whiteSpace: "nowrap",
+            fontSize: { xs: "1.5rem", sm: "2rem", md: "2.5rem" }, // Adjust font size dynamically
+          }}
+        >
+          Christian Ilagan
+        </Typography>
+        <Typography
+          variant="h4"
+          color={WHITE}
+          gutterBottom
+          sx={{
+            whiteSpace: "nowrap",
+            fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" }, // Adjust font size dynamically
+          }}
+        >
+          I am a
+        </Typography>
+        <Typography
+          variant="h4"
+          color={PURPLE}
+          sx={{
+            whiteSpace: "nowrap",
+            fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" }, // Adjust font size dynamically
+          }}
+        >
+          <Typewriter
+            options={{
+              strings: ["Site Reliability Engineer", "Developer", "Sports Enthusiast"],
+              autoStart: true,
+              loop: true,
+              delay: 50,
+              deleteSpeed: 40,
             }}
-          >
-            Hi, I'm
-          </Typography>
-          <Typography
-            variant="h3"
-            color={WHITE}
-            sx={{
-              whiteSpace: "nowrap", // Prevent line breaks
-              textAlign: { xs: "center", sm: "left" }, // Center on xs screens
-            }}
-          >
-            Christian Ilagan
-          </Typography>
-          <Typography
-            variant="h4"
-            color={WHITE}
-            gutterBottom
-            sx={{
-              whiteSpace: "nowrap", // Prevent line breaks
-              textAlign: { xs: "center", sm: "left" }, // Center on xs screens
-            }}
-          >
-            I am a
-          </Typography>
-          <Typography
-            variant="h4"
-            color={PURPLE}
-            sx={{
-              whiteSpace: "nowrap", // Prevent line breaks
-              textAlign: { xs: "center", sm: "left" }, // Center on xs screens
-            }}
-          >
-            <Typewriter
-              options={{
-                strings: ["Site Reliability Engineer", "Developer", "Sports Enthusiast"],
-                autoStart: true,
-                loop: true,
-                delay: 50,
-                deleteSpeed: 40,
-              }}
-            />
-          </Typography>
+          />
+        </Typography>
 
-          {/* Description */}
-          <Typography
-            variant="body2"
-            sx={{
-              [theme.breakpoints.between("xs", "sm")]: {
-                width: "70vw",
-                textAlign: "center", // Center text on xs screens
-              },
-              [theme.breakpoints.between("sm", "md")]: {
-                width: "45vw",
-              },
-              [theme.breakpoints.between("md", "lg")]: {
-                width: "35vw",
-              },
-              [theme.breakpoints.up("xl")]: {
-                width: "25vw",
-              },
-            }}
-          >
-            Ensuring reliability/observability of software through automation, alerting, data collection and visualisation.
-          </Typography>
-          <br />
-          <nav>
-            <Stack direction="column" spacing={2} id="scroll-container" sx={{ paddingLeft: "50px", width: "20%", display: { xs: "none", sm: "block" } }}>
-              <StyledNavLink
-                to="about"
-                smooth={true}
-                duration={500}
-                spy={true}
-                activeClass="active"
-              >
-                <StyledLink to="/about">
-                  ABOUT
-                </StyledLink>
-              </StyledNavLink>
-              <StyledNavLink
-                to="experience"
-                smooth={true}
-                duration={500}
-                spy={true}
-                activeClass="active"
-              >
-                <StyledLink to="/experience">
-                  EXPERIENCE
-                </StyledLink>
-              </StyledNavLink>
-              <StyledNavLink
-                to="projects"
-                smooth={true}
-                duration={500}
-                spy={true}
-                activeClass="active"
-              >
-                <StyledLink to="/projects">
-                  PROJECTS
-                </StyledLink>
-              </StyledNavLink>
-            </Stack>
-          </nav>
-          {/* Social Media Links */}
+        {/* Description */}
+        <Typography
+          variant="body2"
+          sx={{
+            fontSize: { xs: "0.5rem", sm: "0.75rem", md: "1rem" }, // Adjust font size dynamically
+            width: "90%", // Adjust width dynamically
+          }}
+        >
+          Ensuring reliability/observability of software through automation, alerting, data collection, and visualization.
+        </Typography>
+        <br />
+
+        {/* Navigation Links */}
+        <nav>
           <Stack
-            direction="row"
-            spacing={3}
+            direction="column"
+            spacing={2}
+            id="scroll-container"
             sx={{
-              marginTop: "auto",
-              justifyContent: "center", // Center icons
-              padding: "40px",
+              paddingLeft: { xs: "10px", sm: "20px", md: "50px" }, // Adjust padding dynamically
+              width: { xs: "100%", sm: "80%", md: "20%" }, // Adjust width dynamically
+              display: {sm: "none", md:"flex" }, // Ensure visibility
             }}
           >
-            <SocialIcon href="https://github.com/cmilagan" target="_blank" rel="noopener noreferrer">
-              <FaGithub />
-            </SocialIcon>
-            <SocialIcon href="https://www.linkedin.com/in/cmilagan/" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin />
-            </SocialIcon>
+            <StyledNavLink
+              to="about"
+              smooth={true}
+              duration={500}
+              spy={true}
+              activeClass="active"
+            >
+              <StyledLink to="/about">ABOUT</StyledLink>
+            </StyledNavLink>
+            <StyledNavLink
+              to="experience"
+              smooth={true}
+              duration={500}
+              spy={true}
+              activeClass="active"
+            >
+              <StyledLink to="/experience">EXPERIENCE</StyledLink>
+            </StyledNavLink>
+            <StyledNavLink
+              to="projects"
+              smooth={true}
+              duration={500}
+              spy={true}
+              activeClass="active"
+            >
+              <StyledLink to="/projects">PROJECTS</StyledLink>
+            </StyledNavLink>
           </Stack>
+        </nav>
+
+        {/* Social Media Links */}
+        <Stack
+          direction="row"
+          spacing={3}
+          sx={{
+            marginTop: "auto",
+            justifyContent: "center",
+            padding: { xs: "20px", sm: "30px", md: "40px" }, // Adjust padding dynamically
+          }}
+        >
+          <SocialIcon href="https://github.com/cmilagan" target="_blank" rel="noopener noreferrer">
+            <FaGithub />
+          </SocialIcon>
+          <SocialIcon href="https://www.linkedin.com/in/cmilagan/" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin />
+          </SocialIcon>
         </Stack>
-      </FixedNavWrapper>
-    </Box>
+      </Stack>
+    </Container>
   );
 };
 

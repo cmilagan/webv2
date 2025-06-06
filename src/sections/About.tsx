@@ -1,12 +1,11 @@
 import React from "react";
-import Section from "../components/section/Section";
-import { Stack, Typography, Grid } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 
 const About = () => {
   return (
     <div id="about">
-      <Section
-        align="flex-start"
+      <Stack
+        sx={{ align: "flex-start" }}
       >
         <Stack
           direction="column"
@@ -24,7 +23,7 @@ const About = () => {
             </Typography>
           </Stack>
         </Stack>
-      </Section>
+      </Stack>
     </div>
   );
 };
